@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMicropostsTable extends Migration
+class CreateUserFollowTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateMicropostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('microposts', function (Blueprint $table) {
+        Schema::create('user_follow', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('content');
+            $table->unsignedBigInteger('follow_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            
+             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('follow_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unique(['user_id', 'follow_id']);
         });
     }
 
@@ -29,6 +32,6 @@ class CreateMicropostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('microposts');
+        Schema::dropIfExists('user_follow');
     }
 }

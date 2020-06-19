@@ -20,4 +20,10 @@
             <span class="badge badge-secondary">{{ $user->followers_count }}</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a href="{{ route('users.fovorites', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.fovorites') ? 'active' : '' }}">
+            Fovorites
+            <span class="badge badge-secondary">{{ $user->fovorites_count }}</span>
+        </a>
+    </li>
 </ul>

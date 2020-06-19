@@ -56,6 +56,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'user_follow', 'follow_id', 'user_id')->withTimestamps();
     }
+    
      public function follow($userId)
     {
         // すでにフォローしているかの確認
@@ -124,6 +125,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'fovorites', 'follow_id', 'microposts_id')->withTimestamps();
     }
+    
+    
     public function fovorites3($userId)
     {
         // すでにフォローしているかの確認

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class UserFovoriteController extends Controller
-{ public function store($id)
+{ 
+    
+    public function store($id)
     {
         // 認証済みユーザ（閲覧者）が、 idのユーザをフォローする
-        \Auth::user()->fovorite($id);
+        \Auth::user()->fovorites3($id);
         // 前のURLへリダイレクトさせる
         return back();
     }
@@ -22,7 +24,7 @@ class UserFovoriteController extends Controller
     public function destroy($id)
     {
         // 認証済みユーザ（閲覧者）が、 idのユーザをアンフォローする
-        \Auth::user()->fovorites2($id);
+        \Auth::user()->fovorites4($id);
         // 前のURLへリダイレクトさせる
         return back();
     }

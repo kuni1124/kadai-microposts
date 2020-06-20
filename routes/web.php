@@ -25,8 +25,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('fovorite', 'UserFovoriteController@store')->name('user.fovorite');
         Route::delete('fovorites2', 'UserFovoriteController@destroy')->name('user.fovorites2');
-        Route::get('fovorites1', 'UsersController@followings')->name('users.fovorites1');
-        Route::get('fovorites', 'UsersController@followers')->name('users.fovorites');
+        Route::get('fovorites1', 'UsersController@fovorites1')->name('users.fovorites1');
+        Route::get('fovorites', 'UsersController@fovorites')->name('users.fovorites');
     });
     
 

@@ -44,6 +44,7 @@ class User extends Authenticatable
     {
         $this->loadCount('microposts');
     }
+    
     public function followings()
     {
         return $this->belongsToMany(User::class, 'user_follow', 'user_id', 'follow_id')->withTimestamps();
@@ -106,7 +107,7 @@ class User extends Authenticatable
     public function is_following($userId)
     {
         // フォロー中ユーザの中に $userIdのものが存在するか
-        return $this->followings()->where('microposts_id', $userId)->exists();
+        return $this->followings()->where('follow_id', $userId)->exists();
     }
      public function feed_microposts()
     {
@@ -123,7 +124,7 @@ class User extends Authenticatable
     }
     public function fovorites2()
     {
-        return $this->belongsToMany(User::class, 'fovorites', 'follow_id', 'microposts_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'fovorites', 'microposts_id', 'user_id')->withTimestamps();
     }
     
     

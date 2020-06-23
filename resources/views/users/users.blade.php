@@ -7,6 +7,7 @@
                 <div class="media-body">
                     <div>
                         {{ $user->name }}
+                       
                     </div>
                     <div>
                         {{-- ユーザ詳細ページへのリンク --}}
@@ -15,6 +16,7 @@
                 </div>
             </li>
         @endforeach
+         
     </ul>
      {{-- ページネーションのリンク --}}
     {{ $users->links() }}

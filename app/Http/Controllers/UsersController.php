@@ -86,23 +86,21 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
 
         // 関係するモデルの件数をロード
-        $user->loadRelationshipCounts();
+        $user ->loadRelationshipCounts();
 
-        // ユーザのフォロー一覧を取得
-        $fovorites1 = $user->fovorites1()->paginate(10);
-
+        // ユーザのお気に入り一覧を取得
+         $fovorites = $user->fovorites1()->paginate(10);
+        
         // フォロー一覧ビューでそれらを表示
         return view('users.fovorites1', [
             'user' => $user,
-            'users' => $fovorites1,
+            'fovorites' => $fovorites,
+           
+          
         ]);
+        
     }
-
-    /**
-     * ユーザのフォロワー一覧ページを表示するアクション。
-     *
-     * @param  $id  ユーザのid
-     * @return \Illuminate\Http\Response
-     */
+  
    
+
 }

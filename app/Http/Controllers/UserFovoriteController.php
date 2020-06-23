@@ -12,7 +12,7 @@ class UserFovoriteController extends Controller
         // 認証済みユーザ（閲覧者）が、 idのユーザをフォローする
         \Auth::user()->fovorites3($id);
         // 前のURLへリダイレクトさせる
-        return back();
+       return back();
     }
 
     /**

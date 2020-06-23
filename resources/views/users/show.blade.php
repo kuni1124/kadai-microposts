@@ -14,13 +14,11 @@
                 @include('microposts.form')
             @endif
             {{-- 投稿一覧 --}}
+           
             @include('microposts.microposts')
+           
+           
         </div>
-         <aside class="col-sm-4">
-            
-            
-            {{-- フォロー／アンフォローボタン --}}
-            @include('user_fovorites.fovorites_button')
-        </aside>
+         
     </div>
 @endsection
